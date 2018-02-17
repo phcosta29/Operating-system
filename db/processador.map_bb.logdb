@@ -1,0 +1,3 @@
+v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,unidadelogicaearitmetica:comb_121|lpm_mult:Mult1|mult_16t:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,unidadelogicaearitmetica:comb_121|lpm_mult:Mult0|mult_7dt:auto_generated|mac_out2,

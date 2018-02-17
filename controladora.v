@@ -1,0 +1,357 @@
+module controladora(
+	input [4:0]code,
+	output reg [4:0]controle_ula,
+	output reg [2:0]controle_registradores,
+	output reg [1:0]controle_memoria,//[1:0]
+	output reg [2:0]controle_pc,
+	output reg [1:0]controle_moduloio,
+	output reg [1:0]controle_displays,
+	output reg controle_mux,
+	output reg controlemux,
+	output reg [1:0]controle_hd,
+	output reg controle_instr,
+	output reg controle_end
+);
+
+always@(code)
+begin
+	case(code)
+	5'b00000://add -> testado
+	begin
+		controle_ula=5'b00000;
+		controle_registradores=3'b001;
+		controle_pc=3'b000;
+		controle_moduloio=2'b11;
+		controle_memoria=2'bxx;
+		controle_displays=2'b11;
+		controle_mux=1'bx;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b00001://addi -> testado
+	begin
+		controle_ula=5'b00001;
+		controle_registradores=3'b000;
+		controle_pc=3'b000;
+		controle_moduloio=2'b11;
+		controle_memoria=2'bxx;
+		controle_displays=2'b11;
+		controle_mux=1'bx;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b00010://sub -> testado
+	begin
+		controle_ula=5'b00010;
+		controle_registradores=3'b001;
+		controle_pc=3'b000;
+		controle_moduloio=2'b11;
+		controle_memoria=2'bxx;
+		controle_displays=2'b11;
+		controle_mux=1'bx;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b00011://subi -> testado
+	begin
+		controle_ula=5'b00011;
+		controle_registradores=3'b000;
+		controle_pc=3'b000;
+		controle_moduloio=2'b11;
+		controle_memoria=2'bxx;
+		controle_displays=2'b11;
+		controle_mux=1'bx;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b00100://mult 
+	begin
+		controle_ula=5'b00100;
+		controle_registradores=3'b001;
+		controle_pc=3'b000;
+		controle_moduloio=2'b11;
+		controle_memoria=2'bxx;
+		controle_displays=2'b11;
+		controle_mux=1'bx;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b00101://multi -> testado
+	begin
+		controle_ula=5'b00101;
+		controle_registradores=3'b000;
+		controle_pc=3'b000;
+		controle_moduloio=2'b11;
+		controle_memoria=2'bxx;
+		controle_displays=2'b11;
+		controle_mux=1'bx;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b00110://div
+	begin
+		controle_ula=5'b00110;
+		controle_registradores=3'b001;
+		controle_pc=3'b000;
+		controle_moduloio=2'b11;
+		controle_memoria=2'bxx;
+		controle_displays=2'b11;
+		controle_mux=1'bx;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b00111://divi 
+	begin
+		controle_ula=5'b00111;
+		controle_registradores=3'b000;
+		controle_pc=3'b000;
+		controle_moduloio=2'b11;
+		controle_memoria=2'bxx;
+		controle_displays=2'b11;
+		controle_mux=1'bx;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b01000://jump -> Testado
+	begin
+		controle_ula=5'b10101;//5'bxxxxx
+		controle_registradores=3'b101;
+		controle_pc=3'b001;
+		controle_moduloio=2'b11;
+		controle_memoria=2'bxx;
+		controle_displays=2'b11;
+		controle_mux=1'bx;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b01001://branch -> testado
+	begin
+		controle_ula=5'b01001;
+		controle_registradores=3'b001;
+		controle_pc=3'b010;
+		controle_moduloio=2'b11;
+		controle_memoria=2'bxx;
+		controle_displays=2'b11;
+		controle_mux=1'bx;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b01010://branch not equal -> testado
+	begin
+		controle_ula=5'b01010;
+		controle_registradores=3'b001;
+		controle_pc=3'b010;
+		controle_moduloio=2'b11;
+		controle_memoria=2'bxx;
+		controle_displays=2'b11;
+		controle_mux=1'bx;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b01011://slt -> testado
+	begin
+		controle_ula=5'b01011;
+		controle_registradores=3'b001;
+		controle_pc=3'b000;
+		controle_moduloio=2'b11;
+		controle_memoria=2'bxx;
+		controle_displays=2'b11;
+		controle_mux=1'bx;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b01100://slti -> testado
+	begin
+		controle_ula=5'b01100;
+		controle_registradores=3'b000;
+		controle_pc=3'b000;
+		controle_moduloio=2'b11;
+		controle_memoria=2'bxx;
+		controle_displays=2'b11;
+		controle_mux=1'bx;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b01101://load -> testado
+	begin
+		controle_ula=5'b10101;//5'bxxxxx
+		controle_registradores=3'b010;
+		controle_pc=3'b000;
+		controle_moduloio=2'b11;
+		controle_memoria=2'b00;
+		controle_displays=2'b11;
+		controle_mux=1'b1;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b01110://store -> testado
+	begin
+		controle_ula=5'b10101;//5'bxxxxx
+		controle_registradores=3'b101;
+		controle_pc=3'b000;
+		controle_moduloio=2'b11;
+		controle_memoria=2'b01;
+		controle_displays=2'b11;
+		controle_mux=1'b1;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b01111://not
+	begin
+		controle_ula=5'b01111;
+		controle_registradores=3'b001;
+		controle_pc=3'b000;
+		controle_moduloio=2'b11;
+		controle_memoria=2'bxx;
+		controle_displays=2'b11;
+		controle_mux=1'bx;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b10001://input
+	begin
+		controle_ula=5'b10101;//5'bxxxxx
+		controle_registradores=3'b100;
+		controle_pc=3'b000;
+		controle_moduloio=2'b00;
+		controle_memoria=2'bxx;
+		controle_displays=2'b11;
+		controle_mux=1'bx;
+		controlemux=1'b1;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b10010://output -> testado
+	begin
+		controle_ula=5'b10110;
+		controle_registradores=3'b101;
+		controle_pc=3'b000;
+		controle_moduloio=2'b10;
+		controle_memoria=2'bxx;
+		controle_displays=2'b00;
+		controle_mux=1'bx;
+		controlemux=1'b1;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b10101://loadi -> testado
+	begin
+		controle_ula=5'b10101;//5'bxxxxx
+		controle_registradores=3'b011;
+		controle_pc=3'b000;
+		controle_moduloio=2'b11;
+		controle_memoria=2'bxx;
+		controle_displays=2'b11;
+		controle_mux=1'bx;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b11111://finalizar -> testado
+	begin
+		controle_ula=5'b10101;
+		controle_registradores=3'bxxx;
+		controle_pc=3'b011;
+		controle_moduloio=2'b11;
+		controle_memoria=2'bxx;
+		controle_displays=2'b11;
+		controle_mux=1'bx;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b10000://storei -> testado
+	begin
+		controle_ula=5'b10101;//5'bxxxxx
+		controle_registradores=3'b110;
+		controle_pc=3'b000;
+		controle_moduloio=2'b11;
+		controle_memoria=2'b01;
+		controle_displays=2'b11;
+		controle_mux=1'b0;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b11000://load vetor -> testado
+	begin
+		controle_ula=5'b10101;//5'bxxxxx
+		controle_registradores=3'b010;
+		controle_pc=3'b000;
+		controle_moduloio=2'b11;
+		controle_memoria=2'b00;
+		controle_displays=2'b11;
+		controle_mux=1'b0;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b00;
+		controle_end=1'b0;
+	end
+	5'b11001://Carregar do HD
+	begin
+		controle_ula=5'b10101;//5'bxxxxx
+		controle_registradores=3'b010;
+		controle_pc=3'b100;
+		controle_moduloio=2'b11;
+		controle_memoria=2'b10;
+		controle_displays=2'b11;
+		controle_mux=1'b0;
+		controlemux=1'b0;
+		controle_hd=2'b00;
+		controle_instr=2'b01;
+		controle_end=1'b1;
+	end
+	5'b11010://Troca contexto
+	begin
+		controle_ula=5'b10101;//5'bxxxxx
+		controle_registradores=3'b010;
+		controle_pc=3'b101;
+		controle_moduloio=2'b11;
+		controle_memoria=2'b10;
+		controle_displays=2'b11;
+		controle_mux=1'b0;
+		controlemux=1'b0;
+		controle_hd=2'bxx;
+		controle_instr=2'b11;
+		controle_end=1'b0;
+	end
+endcase
+end
+endmodule
